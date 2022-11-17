@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  env: {
+    apiKey: '3ec4d8d0f832d2541e0951a665871b6b',
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
