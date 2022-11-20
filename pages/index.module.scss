@@ -1,0 +1,13 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  background-color: #111111;
+  gap: 5rem;
+
+  &__rows {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}

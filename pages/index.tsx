@@ -1,5 +1,9 @@
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import RowPictures from '../components/RowPictures';
 import api, { endpoint } from '../lib/api';
 import { Picture } from '../lib/types';
+import styles from './index.module.scss';
 
 // prettier-ignore
 export async function getStaticProps() {
@@ -23,5 +27,38 @@ export default function HomePage({
   tvPopular,
   tvTopRated,
 }: HomePagePropTypes) {
-  return <div>HomePage</div>;
+  return (
+    <div className={styles.home}>
+      <Header picture={moviesPopular[0]} />
+
+      <div className={styles.home__rows}>
+        <RowPictures
+          rowHeading="Popular Movies"
+          link="/movies/popular"
+          pictureLink="/movies"
+          pictures={moviesPopular}
+        />
+        <RowPictures
+          rowHeading="Top Movies"
+          link="/movies/top-rated"
+          pictureLink="/movies"
+          pictures={moviesTopRated}
+        />
+        <RowPictures
+          rowHeading="Popular TV"
+          link="/tv/popular"
+          pictureLink="/tv"
+          pictures={tvPopular}
+        />
+        <RowPictures
+          rowHeading="Top TV"
+          link="/tv/top-rated"
+          pictureLink="/tv"
+          pictures={tvTopRated}
+        />
+      </div>
+
+      <Footer />
+    </div>
+  );
 }

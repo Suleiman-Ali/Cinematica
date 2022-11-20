@@ -5,6 +5,9 @@ const nextConfig = {
   env: {
     apiKey: '3ec4d8d0f832d2541e0951a665871b6b',
   },
+  images: {
+    domains: ['image.tmdb.org'],
+  },
 };
 
 module.exports = nextConfig;
