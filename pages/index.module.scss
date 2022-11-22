@@ -1,7 +1,7 @@
 .home {
   display: flex;
   flex-direction: column;
-  background-color: #111111;
+  background-color: var(--back-color);
   gap: 5rem;
 
   &__rows {

@@ -5,13 +5,21 @@ import api, { endpoint } from '../lib/api';
 import { Picture } from '../lib/types';
 import styles from './index.module.scss';
 
-// prettier-ignore
 export async function getStaticProps() {
-  const moviesPopular = (await api.get(endpoint('/movie/popular'))).data.results;
-  const moviesTopRated = (await api.get(endpoint('/movie/top_rated'))).data.results;
-  const  tvPopular  = (await api.get(endpoint('/tv/popular'))).data.results;
-  const  tvTopRated  = (await api.get(endpoint('/tv/top_rated'))).data.results;
-  return { props: { moviesPopular, moviesTopRated, tvPopular, tvTopRated } };
+  const allData = await Promise.all([
+    api.get(endpoint('/movie/popular')),
+    api.get(endpoint('/movie/top_rated')),
+    api.get(endpoint('/tv/popular')),
+    api.get(endpoint('/tv/top_rated')),
+  ]);
+  const moviesPopular = allData[0].data.results;
+  const moviesTopRated = allData[1].data.results;
+  const tvPopular = allData[2].data.results;
+  const tvTopRated = allData[3].data.results;
+  return {
+    props: { moviesPopular, moviesTopRated, tvPopular, tvTopRated },
+    revalidate: 60 * 60 * 1,
+  };
 }
 
 interface HomePagePropTypes {
@@ -57,8 +65,6 @@ export default function HomePage({
           pictures={tvTopRated}
         />
       </div>
-
-      <Footer />
     </div>
   );
 }

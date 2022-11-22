@@ -1,0 +1,113 @@
+@import './../styles/breakpoints.scss';
+
+.parent {
+  position: fixed;
+  background-color: var(--back-color);
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1.5rem;
+
+  @media screen and (min-width: $bp-500) {
+    padding: 1.5rem 3rem;
+  }
+
+  @media screen and (min-width: $bp-725) {
+    padding: 1.25rem 5rem;
+  }
+
+  @media screen and (min-width: $bp-1000) {
+    position: absolute;
+    background-color: transparent;
+    padding: 2.5rem 5rem;
+  }
+}
+
+.nav {
+  max-width: 1250px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    position: relative;
+    z-index: 25;
+    width: 22.5rem;
+    height: auto;
+
+    @media screen and (min-width: $bp-500) {
+      width: 23.5rem;
+    }
+
+    @media screen and (min-width: $bp-725) {
+      width: 25rem;
+    }
+  }
+
+  &__button {
+    position: relative;
+    z-index: 25;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+
+    @media screen and (min-width: $bp-500) {
+      font-size: 2.75rem;
+    }
+
+    @media screen and (min-width: $bp-725) {
+      font-size: 3rem;
+    }
+  }
+
+  &__linksSmall {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--back-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__linkSmall {
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+
+    @media screen and (min-width: $bp-500) {
+      font-size: 2.25rem;
+    }
+
+    @media screen and (min-width: $bp-725) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__linksBig {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  &__linkBig {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+}

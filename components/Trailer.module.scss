@@ -1,0 +1,22 @@
+@import '../styles/breakpoints.scss';
+
+.trailer {
+  max-width: 1250px;
+  width: 100%;
+
+  &__video {
+    border: none;
+    outline: none;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 2.5px;
+
+    @media screen and (min-width: $bp-900) {
+      min-height: 500px;
+    }
+
+    @media screen and (min-width: $bp-1100) {
+      min-height: 600px;
+    }
+  }
+}

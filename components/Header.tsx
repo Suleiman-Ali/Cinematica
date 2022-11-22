@@ -17,7 +17,7 @@ export default function Header({ picture }: HeaderPropTypes) {
         <Image
           className={styles.header__backgroundImage}
           src={prefixImgOriginal(backdrop_path)}
-          alt={id + ''}
+          alt={`${id}`}
           width={1500}
           height={1000}
         />
@@ -31,9 +31,9 @@ export default function Header({ picture }: HeaderPropTypes) {
           <Image
             className={styles.header__poster}
             src={prefixImgOriginal(poster_path)}
-            alt={id + ''}
-            width={600}
-            height={600}
+            alt={`${id}`}
+            width={300}
+            height={300}
           />
         </Link>
       </div>
