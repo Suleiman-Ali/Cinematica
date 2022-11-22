@@ -25,22 +25,28 @@ export default function TvDetails({
   return (
     <div className={styles.pictureDetails}>
       <p className={styles.pictureDetails__info}>
-        <FaGlobe />
-        {lang.toUpperCase()}
+        <FaGlobe className={styles.pictureDetails__infoIcon} />
+        <p className={styles.pictureDetails__infoText}>{lang.toUpperCase()}</p>
       </p>
       <p className={styles.pictureDetails__info}>
-        <FaCalendar />
-        {date.replaceAll('-', '/')}
+        <FaCalendar className={styles.pictureDetails__infoIcon} />
+        <p className={styles.pictureDetails__infoText}>
+          {date.replaceAll('-', '/')}
+        </p>
       </p>
       <p className={styles.pictureDetails__info}>
-        <FaHashtag />S{seasons}
+        <FaHashtag className={styles.pictureDetails__infoIcon} />
+        <p className={styles.pictureDetails__infoText}>S{seasons}</p>
       </p>
       <p className={styles.pictureDetails__info}>
-        <FaAsterisk />E{episodes}
+        <FaAsterisk className={styles.pictureDetails__infoIcon} />
+        <p className={styles.pictureDetails__infoText}>E{episodes}</p>
       </p>
       <p className={styles.pictureDetails__info}>
-        <FaStar />
-        {(+rate).toFixed(1)}/10
+        <FaStar className={styles.pictureDetails__infoIcon} />
+        <p className={styles.pictureDetails__infoText}>
+          {(+rate).toFixed(1)}/10
+        </p>
       </p>
     </div>
   );

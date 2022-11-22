@@ -44,10 +44,10 @@
   &__details {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
 
     @media screen and (min-width: $bp-900) {
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
   }
 }
