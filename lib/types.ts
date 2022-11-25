@@ -1,6 +1,7 @@
 export type Genre = { id: number; name: string };
 
 export type Picture = {
+  genre_ids: number[];
   genres: Genre[];
   title: string;
   backdrop_path: string;

@@ -12,3 +12,9 @@ export const prefixImgOriginal = (path: string): string =>
 
 export const prefixVideo = (path: string): string =>
   `https://www.youtube.com/embed/${path}`;
+
+export const endPointWithQuery = (
+  ep: string,
+  query: string,
+  page: number = 1
+): string => `${ep}?api_key=${process.env.apiKey}&query=${query}&page=${page}`;

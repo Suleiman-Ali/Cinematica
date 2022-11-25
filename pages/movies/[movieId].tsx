@@ -9,7 +9,6 @@ import Title from '../../components/Title';
 import Overview from '../../components/Overview';
 import Trailer from '../../components/Trailer';
 import SimilarPictures from '../../components/SimilarPictures';
-import Footer from '../../components/Footer';
 import styles from '../PicturePage.module.scss';
 
 interface getServerSidePropsPropTypes {

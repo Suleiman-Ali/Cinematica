@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Picture } from '../lib/types';
-import { BsBoxArrowUpRight } from 'react-icons/bs';
 import { prefixImgOriginal } from '../lib/api';
-import styles from './pictureItem.module.scss';
+import styles from './PictureItem.module.scss';
 
 interface PictureItemPropTypes {
   picture: Picture;
