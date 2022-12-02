@@ -1,0 +1,52 @@
+@import '../../../styles/breakpoints.scss';
+
+.searchForm {
+  max-width: 750px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  @media screen and (min-width: $bp-725) {
+    max-width: 750px;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--back-color);
+    border-radius: 2.5px;
+    font-size: 1.5rem;
+
+    @media screen and (min-width: $bp-500) {
+      font-size: 1.6rem;
+    }
+
+    @media screen and (min-width: $bp-725) {
+      font-size: 1.75rem;
+      padding: 1.25rem;
+    }
+  }
+
+  &__btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &__clear {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}

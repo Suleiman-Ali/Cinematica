@@ -1,0 +1,23 @@
+@import '../../../styles/breakpoints.scss';
+
+.footer {
+  background-color: var(--back-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7.5rem;
+
+  &__logo {
+    fill: var(--primary-color);
+    width: 22rem;
+    height: auto;
+
+    @media screen and (min-width: $bp-500) {
+      width: 23rem;
+    }
+
+    @media screen and (min-width: $bp-725) {
+      width: 24rem;
+    }
+  }
+}

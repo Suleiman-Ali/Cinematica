@@ -32,3 +32,12 @@ export type Video = {
   name: string;
   type: string;
 };
+
+export type PicturesType = {
+  pictures: Picture[];
+  index: number;
+  term: string;
+  sort: string;
+  genre: string;
+  isCanLoadMore: boolean;
+};

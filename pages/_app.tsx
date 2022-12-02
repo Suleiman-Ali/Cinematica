@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import type { AppProps } from 'next/app';
+import Footer from '../components/distributed/footer/footer';
+import Navbar from '../components/distributed/navbar/navbar';
 import '../styles/globals.scss';
+import '@fontsource/josefin-sans';
+import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,8 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Next Entertainment</title>
         <meta
           name="description"
-          content="View details of your favorite Movies and TV shows."
-          key="desc"
+          content="View details of your favorite movies and tv shows."
         />
       </Head>
       <Navbar />
@@ -23,3 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+// NOTE - Error Handling (server-side, client-side)
+// NOTE - Refactor
+// NOTE - Optimizations
+// NOTE - Refactor

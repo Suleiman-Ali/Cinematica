@@ -1,0 +1,44 @@
+@import '../../../styles/breakpoints.scss';
+
+.similarPictures {
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary-color);
+
+    @media screen and (min-width: $bp-500) {
+      font-size: 1.7rem;
+    }
+
+    @media screen and (min-width: $bp-700) {
+      font-size: 1.8rem;
+    }
+
+    @media screen and (min-width: $bp-700) {
+      font-size: 1.9rem;
+    }
+
+    @media screen and (min-width: $bp-900) {
+      font-size: 2rem;
+    }
+  }
+
+  &__items {
+    width: 100%;
+    display: flex;
+  }
+
+  &__item {
+    border-radius: 2.5px;
+    overflow: hidden;
+    max-width: 198px;
+    width: 100%;
+    margin: 0 0.25rem;
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../../styles/breakpoints.scss';
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  @media screen and (min-width: $bp-725) {
+    max-width: 300px;
+  }
+
+  &__clear {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}

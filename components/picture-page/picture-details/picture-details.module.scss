@@ -1,0 +1,16 @@
+@import '../../../styles/breakpoints.scss';
+
+.pictureDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media screen and (min-width: $bp-350) {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: $bp-500) {
+    gap: 1.5rem;
+  }
+}

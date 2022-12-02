@@ -1,13 +1,15 @@
+@import '../styles/breakpoints.scss';
+
 .home {
   display: flex;
   flex-direction: column;
   background-color: var(--back-color);
-  gap: 5rem;
+  gap: 2.5rem;
 
   &__rows {
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3.5rem;
   }
 }
