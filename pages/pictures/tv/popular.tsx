@@ -5,7 +5,7 @@ import { loadPictures } from '../../../lib/helpers';
 
 export async function getStaticProps() {
   const tvPopular = await loadPictures('tv', 'popular', 1);
-  return { props: { tvPopular }, revalidate: 60 * 60 * 1 };
+  return { props: { tvPopular }, revalidate: 60 * 30 };
 }
 
 interface PopularTvPagePropTypes {

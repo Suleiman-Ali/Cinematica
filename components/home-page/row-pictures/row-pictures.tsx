@@ -4,8 +4,8 @@ import Eye from '../../../public/icons/Eye.svg';
 import styles from './row-pictures.module.scss';
 import { Picture } from '../../../lib/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { hasPosterAndBack, unique } from '../../../lib/helpers';
 import 'swiper/css';
-import { hasPosterAndBack } from '../../../lib/helpers';
 
 interface RowPicturesPropTypes {
   rowHeading: string;
@@ -23,7 +23,7 @@ export default function RowPictures({
   Icon,
 }: RowPicturesPropTypes) {
   if (pictures.length === 0) return null;
-
+  const uniquePictures = unique(pictures);
   return (
     <div className={styles.rowPictures}>
       <div className={styles.rowPictures__box}>
@@ -34,13 +34,12 @@ export default function RowPictures({
           See <Eye /> More
         </Link>
       </div>
-
       <Swiper
         slidesPerView="auto"
         className={`mySwiper ${styles.rowPictures__rowBox}`}
         tag="div"
       >
-        {pictures.map(
+        {uniquePictures.map(
           (picture) =>
             hasPosterAndBack(picture) && (
               <SwiperSlide

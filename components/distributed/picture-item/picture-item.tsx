@@ -19,7 +19,6 @@ export default function PictureItem({
   const imageSrc = prefixPosterImg(poster_path);
   const fullLink = `/pictures/${link}/${id}`;
   const alt = `Image number ${id}`;
-
   return (
     <Link href={fullLink} className={styles.pictureItem} replace={replace}>
       <Image

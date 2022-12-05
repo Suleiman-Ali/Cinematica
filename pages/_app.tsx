@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Footer from '../components/distributed/footer/footer';
 import Navbar from '../components/distributed/navbar/navbar';
+import type { AppProps } from 'next/app';
 import '../styles/globals.scss';
 import '@fontsource/josefin-sans';
-import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -23,8 +23,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
-// NOTE - Error Handling (server-side, client-side)
-// NOTE - Refactor
-// NOTE - Optimizations
-// NOTE - Refactor

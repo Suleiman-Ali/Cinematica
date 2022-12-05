@@ -1,38 +1,20 @@
 import Link from 'next/link';
+import NavbarLink from './navbar-link';
 
 interface NavbarLinksPropTypes {
   ulCls: string;
   linkCls: string;
 }
 
+// prettier-ignore
 export default function NavbarLinks({ ulCls, linkCls }: NavbarLinksPropTypes) {
   return (
     <ul className={ulCls}>
-      <li>
-        <Link href="/" className={linkCls}>
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link href="/pictures/movies/popular" className={linkCls}>
-          Popular Movies
-        </Link>
-      </li>
-      <li>
-        <Link href="/pictures/movies/top-rated" className={linkCls}>
-          Top Movies
-        </Link>
-      </li>
-      <li>
-        <Link href="/pictures/tv/popular" className={linkCls}>
-          Popular TV
-        </Link>
-      </li>
-      <li>
-        <Link href="/pictures/tv/top-rated" className={linkCls}>
-          Top TV
-        </Link>
-      </li>
+      <NavbarLink cls={linkCls} link="/" text="Home"/>
+      <NavbarLink cls={linkCls} link="/pictures/movies/popular" text="Popular Movies"/>
+      <NavbarLink cls={linkCls} link="/pictures/movies/top-rated" text="Top Movies"/>
+      <NavbarLink cls={linkCls} link="/pictures/tv/popular" text="Popular TV"/>
+      <NavbarLink cls={linkCls} link="/pictures/tv/top-rated" text="Top TV"/>
     </ul>
   );
 }

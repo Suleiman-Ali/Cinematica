@@ -3,12 +3,13 @@
 .pictureItem {
   display: block;
   width: 100%;
-  position: relative;
   overflow: hidden;
   text-decoration: none;
 
   &__img {
+    display: block;
     width: 100%;
+    height: auto;
     border-radius: 2.5px;
   }
 }

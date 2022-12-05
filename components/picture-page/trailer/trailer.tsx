@@ -9,7 +9,6 @@ interface TrailerPropTypes {
 export default function Trailer({ video }: TrailerPropTypes) {
   const { key } = video;
   const src = prefixVideo(key);
-
   return (
     <div className={styles.trailer}>
       <iframe

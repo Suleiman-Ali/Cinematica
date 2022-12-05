@@ -52,7 +52,6 @@ export default function Content({
   const isCasts = casts.length > 0;
   const isSimilar = similar.length > 0;
   const isTrailer = trailer.key ? true : false;
-
   return (
     <div className={styles.picturePage}>
       <BackImage src={backImage} alt={name} />

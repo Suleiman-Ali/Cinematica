@@ -5,7 +5,7 @@ import { loadPictures } from '../../../lib/helpers';
 
 export async function getStaticProps() {
   const moviesTopRated = await loadPictures('movie', 'top_rated', 1);
-  return { props: { moviesTopRated }, revalidate: 60 * 60 * 1 };
+  return { props: { moviesTopRated }, revalidate: 60 * 30 };
 }
 
 interface TopRatedMoviesPagePropTypes {

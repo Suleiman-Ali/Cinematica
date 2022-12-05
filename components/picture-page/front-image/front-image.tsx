@@ -15,6 +15,8 @@ export default function FrontImage({ src, alt }: FrontImagePropTypes) {
         alt={alt}
         width={300}
         height={300}
+        loading="eager"
+        priority
       />
     </div>
   );

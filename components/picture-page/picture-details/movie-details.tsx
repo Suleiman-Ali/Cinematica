@@ -26,7 +26,6 @@ export default function MovieDetails({
   const language = lang.toUpperCase();
   const dateFormatted = date.replaceAll('-', '/');
   const score = `${(+rate).toFixed(1)}/10`;
-
   return (
     <div className={styles.pictureDetails}>
       <PictureInfo Icon={Globe} text={language} />

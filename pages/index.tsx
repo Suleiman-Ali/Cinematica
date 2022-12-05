@@ -6,16 +6,14 @@ import styles from './index.module.scss';
 import { Picture } from '../lib/types';
 import { fetchAllPictures, hasPosterAndBack } from '../lib/helpers';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper';
+import { Autoplay, Pagination, EffectFade } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 export async function getStaticProps() {
   const props = await fetchAllPictures();
-  return {
-    props,
-    revalidate: 60 * 60 * 1,
-  };
+  return { props, revalidate: 60 * 30 };
 }
 
 interface HomePagePropTypes {
@@ -48,14 +46,15 @@ export default function HomePage({
     <div className={styles.home}>
       {isAtLeastOnePicture && (
         <Swiper
+          effect="fade"
           loop={true}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
           slidesPerView="auto"
           pagination={{
             clickable: true,
             bulletElement: 'span',
           }}
-          modules={[Pagination, Autoplay]}
+          modules={[Pagination, Autoplay, EffectFade]}
           className="mySwiper"
           tag="div"
         >

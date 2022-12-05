@@ -1,24 +1,16 @@
 import Content from '../../../components/picture-page/content/content';
 import Head from 'next/head';
 import { Cast, Picture, Video } from '../../../lib/types';
-import { fetchAllMovies, fetchPictureData } from '../../../lib/helpers';
+import { fetchPictureData } from '../../../lib/helpers';
 
-export async function getStaticPaths() {
-  const allMovies = await fetchAllMovies();
-  const paths = allMovies.map((movie) => ({
-    params: { movieId: `${movie.id}` },
-  }));
-  return { paths, fallback: 'blocking' };
-}
-
-interface getStaticPropsPropTypes {
+interface getServerSidePropsPropTypes {
   params: { movieId: string };
 }
-export async function getStaticProps({
+export async function getServerSideProps({
   params: { movieId },
-}: getStaticPropsPropTypes) {
+}: getServerSidePropsPropTypes) {
   const props = await fetchPictureData('movie', movieId);
-  return { props, revalidate: 1 * 60 * 60 };
+  return { props };
 }
 
 interface MoviePagePropTypes {
@@ -34,7 +26,6 @@ export default function MoviePage({
   similar,
 }: MoviePagePropTypes) {
   const { title, overview } = details;
-
   return (
     <>
       <Head>

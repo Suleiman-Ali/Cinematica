@@ -26,7 +26,6 @@ export default function TvDetails({
   const seasonsCount = `S${seasons}`;
   const episodesCount = `E${episodes}`;
   const score = `${(+rate).toFixed(1)}/10`;
-
   return (
     <div className={styles.pictureDetails}>
       <PictureInfo Icon={Globe} text={language} />

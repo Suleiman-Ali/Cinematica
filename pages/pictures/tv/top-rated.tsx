@@ -5,7 +5,7 @@ import { loadPictures } from '../../../lib/helpers';
 
 export async function getStaticProps() {
   const tvTopRated = await loadPictures('tv', 'top_rated', 1);
-  return { props: { tvTopRated }, revalidate: 60 * 60 * 1 };
+  return { props: { tvTopRated }, revalidate: 60 * 30 };
 }
 
 interface TopRatedTvPagePropTypes {

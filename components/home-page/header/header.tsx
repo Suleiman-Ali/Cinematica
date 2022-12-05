@@ -15,30 +15,32 @@ export default function Header({ picture, type }: HeaderPropTypes) {
   const backImageSrc = prefixBackImg(backdrop_path);
   const frontImageSrc = prefixPosterImg(poster_path);
   const alt = `${id}`;
-
+  const name = title || original_name;
+  const link = `/pictures/${type}/${id}`;
   return (
     <div className={styles.header}>
-      <div className={styles.header__backgroundBox}>
-        <Image
-          className={styles.header__backgroundImage}
-          src={backImageSrc}
-          alt={alt}
-          width={1500}
-          height={1000}
-        />
-      </div>
+      <Image
+        className={styles.header__backgroundImage}
+        src={backImageSrc}
+        alt={alt}
+        fill
+        loading="eager"
+        priority
+      />
       <div className={styles.header__detailsBox}>
         <div className={styles.header__detailsInnerBox}>
-          <h1 className={styles.header__title}>{title || original_name}</h1>
+          <h1 className={styles.header__title}>{name}</h1>
           <p className={styles.header__overview}>{overview}</p>
         </div>
-        <Link href={`/pictures/${type}/${id}`}>
+        <Link href={link}>
           <Image
             className={styles.header__poster}
             src={frontImageSrc}
             alt={alt}
-            width={300}
-            height={300}
+            width={400}
+            height={400}
+            loading="eager"
+            priority
           />
         </Link>
       </div>

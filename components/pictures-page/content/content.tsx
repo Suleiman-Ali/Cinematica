@@ -4,13 +4,13 @@ import PicturesGrid from '../pictures-grid/pictures-grid';
 import Search from '../search/search';
 import styles from './content.module.scss';
 import { useState } from 'react';
+import { Picture, PicturesType } from '../../../lib/types';
 import {
   loadPictures,
   loadSearchPictures,
   filterSort,
   getDisplayablePictures,
 } from '../../../lib/helpers';
-import { Picture, PicturesType } from '../../../lib/types';
 
 interface ContentPropTypes {
   displayPictures: Picture[];

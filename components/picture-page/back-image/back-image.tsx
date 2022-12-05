@@ -13,8 +13,9 @@ export default function BackImage({ src, alt }: BackImagePropTypes) {
         className={styles.backImage__img}
         src={src}
         alt={alt}
-        width={1500}
-        height={1000}
+        fill
+        loading="eager"
+        priority
       />
     </div>
   );

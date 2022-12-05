@@ -1,22 +1,16 @@
 import Content from '../../../components/picture-page/content/content';
 import Head from 'next/head';
 import { Cast, Picture, Video } from '../../../lib/types';
-import { fetchAllTv, fetchPictureData } from '../../../lib/helpers';
+import { fetchPictureData } from '../../../lib/helpers';
 
-export async function getStaticPaths() {
-  const allTv = await fetchAllTv();
-  const paths = allTv.map((tv) => ({
-    params: { tvId: `${tv.id}` },
-  }));
-  return { paths, fallback: 'blocking' };
-}
-
-interface getStaticPropTypes {
+interface getServerSidePropsPropTypes {
   params: { tvId: string };
 }
-export async function getStaticProps({ params: { tvId } }: getStaticPropTypes) {
+export async function getServerSideProps({
+  params: { tvId },
+}: getServerSidePropsPropTypes) {
   const props = await fetchPictureData('tv', tvId);
-  return { props, revalidate: 1 * 60 * 60 };
+  return { props };
 }
 
 interface TvPagePropTypes {

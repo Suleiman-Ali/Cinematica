@@ -80,26 +80,6 @@ export async function fetchAllPictures() {
   return { moviesPopular, moviesTopRated, tvPopular, tvTopRated };
 }
 
-export async function fetchAllMovies() {
-  const allData = await Promise.all([
-    api.get(endpoint('/movie/popular')),
-    api.get(endpoint('/movie/top_rated')),
-  ]);
-  const moviesPopular = allData[0].data.results || [];
-  const moviesTopRated = allData[1].data.results || [];
-  return [...moviesPopular, ...moviesTopRated];
-}
-
-export async function fetchAllTv() {
-  const allData = await Promise.all([
-    api.get(endpoint('/tv/popular')),
-    api.get(endpoint('/tv/top_rated')),
-  ]);
-  const tvPopular = allData[0].data.results || [];
-  const tvTopRated = allData[1].data.results || [];
-  return [...tvPopular, ...tvTopRated];
-}
-
 export async function fetchPictureData(type: string, id: string) {
   const allData = await Promise.all([
     api.get(endpoint(`/${type}/${id}`)),
@@ -121,4 +101,10 @@ export function hasPosterAndBack({ poster_path, backdrop_path }: Picture) {
 
 export function getDisplayablePictures(pictures: Picture[]) {
   return pictures.filter((picture) => hasPosterAndBack(picture));
+}
+
+export function unique(array: any) {
+  const preMap: [number, any][] = array.map((item: any) => [item['id'], item]);
+  const uniqueItems = [...new Map(preMap).values()];
+  return uniqueItems;
 }

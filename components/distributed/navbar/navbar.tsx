@@ -25,9 +25,10 @@ export default function Navbar() {
       window.removeEventListener('resize', resizeHandler);
       router.events.off('routeChangeStart', resizeHandler);
     };
-  }, []);
+  }, [router.events]);
 
   if (!screen) return <></>;
+  const widthIsLessThan1000 = screen < 1000;
 
   return (
     <div className={styles.parent}>
@@ -38,25 +39,24 @@ export default function Navbar() {
             alt="Logo"
             width={250}
             height={25}
+            loading="eager"
             className={styles.nav__logo}
+            priority
           />
         </Link>
-
-        {screen >= 1000 && (
+        {!widthIsLessThan1000 && (
           <NavbarLinks
             ulCls={styles.nav__linksBig}
             linkCls={styles.nav__linkBig}
           />
         )}
-
-        {screen < 1000 && (
+        {widthIsLessThan1000 && (
           <button className={styles.nav__button} onClick={modelSwitch}>
             {!model && <CaretUp />}
             {model && <CaretDown />}
           </button>
         )}
-
-        {screen < 1000 && model && (
+        {widthIsLessThan1000 && model && (
           <NavbarLinks
             ulCls={styles.nav__linksSmall}
             linkCls={styles.nav__linkSmall}

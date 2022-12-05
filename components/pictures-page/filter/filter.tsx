@@ -18,6 +18,7 @@ export default function Filter({
   sort,
   genre,
 }: FilterPropTypes) {
+  const isClear = sort !== 'Sort By' || genre !== 'All Genres';
   return (
     <div className={styles.filter}>
       <Select name="sort" value={sort} onChange={sortChangeHandler}>
@@ -35,7 +36,7 @@ export default function Filter({
         <Option text="Thriller" value="Thriller" />
         <Option text="Horror" value="Horror" />
       </Select>
-      {(sort !== 'Sort By' || genre !== 'All Genres') && (
+      {isClear && (
         <button
           onClick={filterClearHandler}
           className={styles.filter__clear}

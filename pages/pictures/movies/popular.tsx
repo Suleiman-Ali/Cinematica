@@ -5,7 +5,7 @@ import { loadPictures } from '../../../lib/helpers';
 
 export async function getStaticProps() {
   const moviesPopular = await loadPictures('movie', 'popular', 1);
-  return { props: { moviesPopular }, revalidate: 60 * 60 * 1 };
+  return { props: { moviesPopular }, revalidate: 60 * 30 };
 }
 
 interface PopularMoviesPagePropTypes {

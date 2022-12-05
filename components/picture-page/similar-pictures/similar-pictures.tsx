@@ -2,8 +2,8 @@ import PictureItem from '../../distributed/picture-item/picture-item';
 import styles from './similar-pictures.module.scss';
 import { Picture } from '../../../lib/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { hasPosterAndBack, unique } from '../../../lib/helpers';
 import 'swiper/css';
-import { hasPosterAndBack } from '../../../lib/helpers';
 
 interface SimilarPicturesPropTypes {
   pictures: Picture[];
@@ -14,6 +14,7 @@ export default function SimilarPictures({
   pictures,
   pictureLink,
 }: SimilarPicturesPropTypes) {
+  const uniquePictures = unique(pictures);
   return (
     <div className={styles.similarPictures}>
       <p className={styles.similarPictures__title}>Similar Pictures</p>
@@ -22,7 +23,7 @@ export default function SimilarPictures({
         className={`mySwiper ${styles.similarPictures__items}`}
         tag="div"
       >
-        {pictures.map(
+        {uniquePictures.map(
           (picture) =>
             hasPosterAndBack(picture) && (
               <SwiperSlide

@@ -2,15 +2,17 @@ import Image from 'next/image';
 import styles from './casts.module.scss';
 import { prefixCastImg } from '../../../lib/api';
 import { Cast } from '../../../lib/types';
+import { unique } from '../../../lib/helpers';
 
 interface CastsPropTypes {
   casts: Cast[];
 }
 
 export default function Casts({ casts }: CastsPropTypes) {
+  const uniqueCasts = unique(casts);
   return (
     <div className={styles.casts}>
-      {casts.map(
+      {uniqueCasts.map(
         ({ id, original_name, profile_path }) =>
           profile_path && (
             <div className={styles.casts__cast} key={id}>

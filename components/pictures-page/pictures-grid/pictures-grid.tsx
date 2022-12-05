@@ -1,7 +1,7 @@
 import PictureItem from '../../distributed/picture-item/picture-item';
 import styles from './pictures-grid.module.scss';
 import { Picture } from '../../../lib/types';
-import { hasPosterAndBack } from '../../../lib/helpers';
+import { hasPosterAndBack, unique } from '../../../lib/helpers';
 
 interface PicturesGridPropTypes {
   pictures: Picture[];
@@ -12,9 +12,10 @@ export default function PicturesGrid({
   pictures,
   link,
 }: PicturesGridPropTypes) {
+  const uniquePictures = unique(pictures);
   return (
     <div className={styles.picturesGrid}>
-      {pictures.map(
+      {uniquePictures.map(
         (picture) =>
           hasPosterAndBack(picture) && (
             <PictureItem key={picture.id} picture={picture} link={link} />
