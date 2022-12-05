@@ -5,7 +5,7 @@ export default axios.create({
 });
 
 export const endpoint = (endPoint: string, page: number = 1): string =>
-  `${endPoint}?api_key=${process.env.apiKey}&page=${page}`;
+  `${endPoint}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&page=${page}`;
 
 export const prefixBackImg = (path: string): string =>
   `https://image.tmdb.org/t/p/original${path}`;
@@ -23,4 +23,5 @@ export const endPointWithQuery = (
   ep: string,
   query: string,
   page: number = 1
-): string => `${ep}?api_key=${process.env.apiKey}&query=${query}&page=${page}`;
+): string =>
+  `${ep}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}&page=${page}`;
