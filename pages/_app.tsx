@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="shortcut icon" href="/images/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <title>Next Entertainment</title>
         <meta
           name="description"
