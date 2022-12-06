@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import NavbarLinks from './navbar-links';
+import Logo from '../logo/logo';
 import CaretUp from '../../../public/icons/CaretUp.svg';
 import CaretDown from '../../../public/icons/CaretDown.svg';
 import styles from './navbar.module.scss';
@@ -33,17 +32,7 @@ export default function Navbar() {
   return (
     <div className={styles.parent}>
       <nav className={styles.nav}>
-        <Link href="/">
-          <Image
-            src="/images/logo.svg"
-            alt="Logo"
-            width={250}
-            height={25}
-            loading="eager"
-            className={styles.nav__logo}
-            priority
-          />
-        </Link>
+        <Logo />
         {!widthIsLessThan1000 && (
           <NavbarLinks
             ulCls={styles.nav__linksBig}

@@ -12,7 +12,6 @@ interface RowPicturesPropTypes {
   pictures: Picture[];
   link: string;
   pictureLink: string;
-  Icon: any;
 }
 
 export default function RowPictures({
@@ -20,16 +19,13 @@ export default function RowPictures({
   rowHeading,
   link,
   pictureLink,
-  Icon,
 }: RowPicturesPropTypes) {
   if (pictures.length === 0) return null;
   const uniquePictures = unique(pictures);
   return (
     <div className={styles.rowPictures}>
       <div className={styles.rowPictures__box}>
-        <p className={styles.rowPictures__heading}>
-          {rowHeading} <Icon />
-        </p>
+        <p className={styles.rowPictures__heading}>{rowHeading}</p>
         <Link href={link} className={styles.rowPictures__link}>
           See <Eye /> More
         </Link>

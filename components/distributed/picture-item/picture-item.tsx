@@ -8,17 +8,20 @@ interface PictureItemPropTypes {
   picture: Picture;
   link: string;
   replace?: boolean;
+  index?: number;
 }
 
 export default function PictureItem({
   picture,
   link,
   replace = false,
+  index,
 }: PictureItemPropTypes) {
   const { id, poster_path } = picture;
   const imageSrc = prefixPosterImg(poster_path);
   const fullLink = `/pictures/${link}/${id}`;
   const alt = `Image number ${id}`;
+  const isPriority = typeof index === 'number' && index < 12 ? true : false;
   return (
     <Link href={fullLink} className={styles.pictureItem} replace={replace}>
       <Image
@@ -27,6 +30,7 @@ export default function PictureItem({
         width={300}
         height={300}
         className={styles.pictureItem__img}
+        priority={isPriority}
       />
     </Link>
   );

@@ -22,6 +22,7 @@ export default function Casts({ casts }: CastsPropTypes) {
                 alt={original_name}
                 width={200}
                 height={200}
+                priority
               />
               <p className={styles.casts__castName}>{original_name}</p>
             </div>

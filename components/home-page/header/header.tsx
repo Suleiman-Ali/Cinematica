@@ -24,7 +24,6 @@ export default function Header({ picture, type }: HeaderPropTypes) {
         src={backImageSrc}
         alt={alt}
         fill
-        loading="eager"
         priority
       />
       <div className={styles.header__detailsBox}>
@@ -39,7 +38,6 @@ export default function Header({ picture, type }: HeaderPropTypes) {
             alt={alt}
             width={400}
             height={400}
-            loading="eager"
             priority
           />
         </Link>

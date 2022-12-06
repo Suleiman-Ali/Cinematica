@@ -16,9 +16,14 @@ export default function PicturesGrid({
   return (
     <div className={styles.picturesGrid}>
       {uniquePictures.map(
-        (picture) =>
+        (picture, index) =>
           hasPosterAndBack(picture) && (
-            <PictureItem key={picture.id} picture={picture} link={link} />
+            <PictureItem
+              key={picture.id}
+              picture={picture}
+              link={link}
+              index={index}
+            />
           )
       )}
     </div>

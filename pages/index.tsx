@@ -1,7 +1,5 @@
 import Header from '../components/home-page/header/header';
 import RowPictures from '../components/home-page/row-pictures/row-pictures';
-import Film from '../public/icons/Film.svg';
-import Tv from '../public/icons/TV.svg';
 import styles from './index.module.scss';
 import { Picture } from '../lib/types';
 import { fetchAllPictures, hasPosterAndBack } from '../lib/helpers';
@@ -87,28 +85,24 @@ export default function HomePage({
           link="/pictures/movies/popular"
           pictureLink="movies"
           pictures={moviesPopular}
-          Icon={Film}
         />
         <RowPictures
           rowHeading="Top Movies"
           link="/pictures/movies/top-rated"
           pictureLink="movies"
           pictures={moviesTopRated}
-          Icon={Film}
         />
         <RowPictures
           rowHeading="Popular TV"
           link="/pictures/tv/popular"
           pictureLink="tv"
           pictures={tvPopular}
-          Icon={Tv}
         />
         <RowPictures
           rowHeading="Top TV"
           link="/pictures/tv/top-rated"
           pictureLink="tv"
           pictures={tvTopRated}
-          Icon={Tv}
         />
       </div>
     </div>

@@ -13,9 +13,8 @@ export default function FrontImage({ src, alt }: FrontImagePropTypes) {
         className={styles.frontImage__img}
         src={src}
         alt={alt}
-        width={300}
-        height={300}
-        loading="eager"
+        width={400}
+        height={400}
         priority
       />
     </div>

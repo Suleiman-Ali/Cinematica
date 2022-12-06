@@ -14,7 +14,6 @@ export default function BackImage({ src, alt }: BackImagePropTypes) {
         src={src}
         alt={alt}
         fill
-        loading="eager"
         priority
       />
     </div>

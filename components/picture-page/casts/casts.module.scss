@@ -6,16 +6,20 @@
   row-gap: 1rem;
   column-gap: 0.5rem;
 
-  @media screen and (min-width: $bp-500) {
+  @media screen and (min-width: $bp-400) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media screen and (min-width: $bp-700) {
+  @media screen and (min-width: $bp-500) {
     grid-template-columns: repeat(4, 1fr);
   }
 
+  @media screen and (min-width: $bp-700) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   @media screen and (min-width: $bp-900) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   @media screen and (min-width: $bp-1100) {
@@ -30,9 +34,10 @@
   }
 
   &__castImage {
-    width: 100%;
     border-radius: 2.5px;
     object-fit: cover;
+    width: 100%;
+    height: auto;
   }
 
   &__castName {
