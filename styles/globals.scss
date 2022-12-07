@@ -31,12 +31,6 @@ body::-webkit-scrollbar-thumb {
 
 .mySwiper {
   width: 100%;
-  --swiper-pagination-color: var(--primary-color);
-  --swiper-pagination-bullet-inactive-color: var(--primary-color);
-  --swiper-pagination-bullet-inactive-opacity: 0.25;
-  --swiper-pagination-bullet-size: 7.5px;
-  --swiper-pagination-bullet-horizontal-gap: 5px;
-
   div {
     width: 100%;
   }

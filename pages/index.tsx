@@ -4,9 +4,8 @@ import styles from './index.module.scss';
 import { Picture } from '../lib/types';
 import { fetchAllPictures, hasPosterAndBack } from '../lib/helpers';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, EffectFade } from 'swiper';
+import { Autoplay, EffectFade } from 'swiper';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 export async function getStaticProps() {
@@ -27,58 +26,37 @@ export default function HomePage({
   tvPopular,
   tvTopRated,
 }: HomePagePropTypes) {
-  const firstPopularMovie = moviesPopular[0];
-  const firstTopMovie = moviesTopRated[0];
-  const firstPopularTv = tvPopular[0];
-  const firstTopTv = tvTopRated[0];
-  const isAtLeastOnePicture =
-    firstPopularMovie || firstTopMovie || firstPopularTv || firstTopTv || null;
-  const isFirstPopularMovie =
-    firstPopularMovie && hasPosterAndBack(firstPopularMovie);
-  const isFirstTopMovie = firstTopMovie && hasPosterAndBack(firstTopMovie);
-  const isFirstPopularTv = firstPopularTv && hasPosterAndBack(firstPopularTv);
-  const isFirstTopTv = firstTopTv && hasPosterAndBack(firstTopTv);
+  const popularMovie = moviesPopular[0];
+  const popularTv = tvPopular[0];
+  const isAtLeastOnePicture = popularMovie || popularTv || null;
+  const isPopularMovie = popularMovie && hasPosterAndBack(popularMovie);
+  const isPopularTv = popularTv && hasPosterAndBack(popularTv);
   const gapTop = !isAtLeastOnePicture ? 'gap-top' : '';
-
   return (
     <div className={styles.home}>
       {isAtLeastOnePicture && (
         <Swiper
+          grabCursor
           effect="fade"
           loop={true}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           slidesPerView="auto"
-          pagination={{
-            clickable: true,
-            bulletElement: 'span',
-          }}
-          modules={[Pagination, Autoplay, EffectFade]}
+          modules={[Autoplay, EffectFade]}
           className="mySwiper"
           tag="div"
         >
-          {isFirstPopularMovie && (
+          {popularMovie && (
             <SwiperSlide tag="div">
-              <Header picture={firstPopularMovie} type="movies" />
+              <Header picture={popularMovie} type="movies" />
             </SwiperSlide>
           )}
-          {isFirstTopMovie && (
+          {popularTv && (
             <SwiperSlide tag="div">
-              <Header picture={firstTopMovie} type="movies" />
-            </SwiperSlide>
-          )}
-          {isFirstPopularTv && (
-            <SwiperSlide tag="div">
-              <Header picture={firstPopularTv} type="tv" />
-            </SwiperSlide>
-          )}
-          {isFirstTopTv && (
-            <SwiperSlide tag="div">
-              <Header picture={firstTopTv} type="tv" />
+              <Header picture={popularTv} type="tv" />
             </SwiperSlide>
           )}
         </Swiper>
       )}
-
       <div className={`${styles.home__rows} ${gapTop}`}>
         <RowPictures
           rowHeading="Popular Movies"

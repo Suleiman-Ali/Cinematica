@@ -23,7 +23,7 @@ export default function SimilarPictures({
         className={`mySwiper ${styles.similarPictures__items}`}
         tag="div"
       >
-        {uniquePictures.map(
+        {uniquePictures.slice(0, 10).map(
           (picture) =>
             hasPosterAndBack(picture) && (
               <SwiperSlide

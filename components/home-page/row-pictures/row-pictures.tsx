@@ -35,7 +35,7 @@ export default function RowPictures({
         className={`mySwiper ${styles.rowPictures__rowBox}`}
         tag="div"
       >
-        {uniquePictures.map(
+        {uniquePictures.slice(0, 10).map(
           (picture) =>
             hasPosterAndBack(picture) && (
               <SwiperSlide
