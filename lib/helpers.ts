@@ -51,9 +51,13 @@ export async function loadPictures(
   type: string,
   index: number
 ) {
-  const url = endpoint(`/${category}/${type}`, index);
-  const newPictures = (await api.get(url)).data.results || [];
-  return newPictures;
+  try {
+    const url = endpoint(`/${category}/${type}`, index);
+    const newPictures = (await api.get(url)).data.results || [];
+    return newPictures;
+  } catch (e) {
+    return [];
+  }
 }
 
 export async function loadSearchPictures(
@@ -61,38 +65,50 @@ export async function loadSearchPictures(
   term: string,
   index: number
 ) {
-  const url = endPointWithQuery(`/search/${category}/`, term, index);
-  const newSearchPictures = (await api.get(url)).data.results || [];
-  return newSearchPictures;
+  try {
+    const url = endPointWithQuery(`/search/${category}/`, term, index);
+    const newSearchPictures = (await api.get(url)).data.results || [];
+    return newSearchPictures;
+  } catch (e) {
+    return [];
+  }
 }
 
 export async function fetchAllPictures() {
-  const allData = await Promise.all([
-    api.get(endpoint('/movie/popular')),
-    api.get(endpoint('/movie/top_rated')),
-    api.get(endpoint('/tv/popular')),
-    api.get(endpoint('/tv/top_rated')),
-  ]);
-  const moviesPopular = allData[0].data.results || [];
-  const moviesTopRated = allData[1].data.results || [];
-  const tvPopular = allData[2].data.results || [];
-  const tvTopRated = allData[3].data.results || [];
-  return { moviesPopular, moviesTopRated, tvPopular, tvTopRated };
+  try {
+    const allData = await Promise.all([
+      api.get(endpoint('/movie/popular')),
+      api.get(endpoint('/movie/top_rated')),
+      api.get(endpoint('/tv/popular')),
+      api.get(endpoint('/tv/top_rated')),
+    ]);
+    const moviesPopular = allData[0].data.results || [];
+    const moviesTopRated = allData[1].data.results || [];
+    const tvPopular = allData[2].data.results || [];
+    const tvTopRated = allData[3].data.results || [];
+    return { moviesPopular, moviesTopRated, tvPopular, tvTopRated };
+  } catch (e) {
+    return null;
+  }
 }
 
 export async function fetchPictureData(type: string, id: string) {
-  const allData = await Promise.all([
-    api.get(endpoint(`/${type}/${id}`)),
-    api.get(endpoint(`/${type}/${id}/credits`)),
-    api.get(endpoint(`/${type}/${id}/videos`)),
-    api.get(endpoint(`/${type}/${id}/similar`)),
-  ]);
-  const details = allData[0].data || {};
-  const cast = allData[1].data.cast || [];
-  const trailers = allData[2].data.results || [];
-  const similar = allData[3].data.results || [];
-  const trailer = extractTrailer(trailers) || {};
-  return { details, cast, trailer, similar };
+  try {
+    const allData = await Promise.all([
+      api.get(endpoint(`/${type}/${id}`)),
+      api.get(endpoint(`/${type}/${id}/credits`)),
+      api.get(endpoint(`/${type}/${id}/videos`)),
+      api.get(endpoint(`/${type}/${id}/similar`)),
+    ]);
+    const details = allData[0].data || {};
+    const cast = allData[1].data.cast || [];
+    const trailers = allData[2].data.results || [];
+    const similar = allData[3].data.results || [];
+    const trailer = extractTrailer(trailers) || {};
+    return { details, cast, trailer, similar };
+  } catch (e) {
+    return null;
+  }
 }
 
 export function hasPosterAndBack({ poster_path, backdrop_path }: Picture) {

@@ -10,6 +10,7 @@ export async function getServerSideProps({
   params: { movieId },
 }: getServerSidePropsPropTypes) {
   const props = await fetchPictureData('movie', movieId);
+  if (!props) return { redirect: { destination: '/404' } };
   return { props };
 }
 
