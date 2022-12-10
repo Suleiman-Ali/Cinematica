@@ -23,7 +23,12 @@ export default function PictureItem({
   const alt = `Image number ${id}`;
   const isPriority = typeof index === 'number' && index < 12 ? true : false;
   return (
-    <Link href={fullLink} className={styles.pictureItem} replace={replace}>
+    <Link
+      href={fullLink}
+      className={styles.pictureItem}
+      replace={replace}
+      prefetch={false}
+    >
       <Image
         src={imageSrc}
         alt={alt}

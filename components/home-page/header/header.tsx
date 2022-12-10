@@ -31,7 +31,7 @@ export default function Header({ picture, type }: HeaderPropTypes) {
           <h1 className={styles.header__title}>{name}</h1>
           <p className={styles.header__overview}>{overview}</p>
         </div>
-        <Link href={link}>
+        <Link href={link} prefetch={false}>
           <Image
             className={styles.header__poster}
             src={frontImageSrc}

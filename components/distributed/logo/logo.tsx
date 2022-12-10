@@ -4,7 +4,7 @@ import styles from './logo.module.scss';
 
 export default function Logo() {
   return (
-    <Link href="/" className={styles.logo}>
+    <Link href="/" className={styles.logo} prefetch={false}>
       Next
       <span>
         <Image src="/images/popcorn.svg" alt="" width={18} height={18} />

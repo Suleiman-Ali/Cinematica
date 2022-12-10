@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import NavbarLink from './navbar-link';
 
 interface NavbarLinksPropTypes {

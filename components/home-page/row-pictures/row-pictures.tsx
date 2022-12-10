@@ -26,7 +26,7 @@ export default function RowPictures({
     <div className={styles.rowPictures}>
       <div className={styles.rowPictures__box}>
         <p className={styles.rowPictures__heading}>{rowHeading}</p>
-        <Link href={link} className={styles.rowPictures__link}>
+        <Link href={link} className={styles.rowPictures__link} prefetch={false}>
           See <Eye /> More
         </Link>
       </div>

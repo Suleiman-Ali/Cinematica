@@ -12,7 +12,7 @@ export default function NavbarLink({ cls, text, link }: NavbarLinkPropTypes) {
   const className = `${cls} ${pathname === link ? 'bold' : ''}`;
   return (
     <li>
-      <Link href={link} className={className}>
+      <Link href={link} className={className} prefetch={false}>
         {text}
       </Link>
     </li>
