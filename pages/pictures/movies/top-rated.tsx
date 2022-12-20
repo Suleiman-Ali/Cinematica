@@ -18,7 +18,7 @@ export default function TopRatedMoviesPage({
   return (
     <>
       <Head>
-        <title>Next Entertainment | Top Rated Movies</title>
+        <title>Cinematica | Top Rated Movies</title>
         <meta
           name="description"
           content="View details of your favorite top-rated movies."

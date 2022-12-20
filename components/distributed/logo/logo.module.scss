@@ -12,5 +12,15 @@
 
   & span {
     margin: 0 0.5rem;
+    & img {
+      width: 2rem;
+      height: 2rem;
+      transform: translateY(0.25rem);
+
+      @media screen and (min-width: $bp-500) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
   }
 }

@@ -16,7 +16,7 @@ export default function PopularTvPage({ tvPopular }: PopularTvPagePropTypes) {
   return (
     <>
       <Head>
-        <title>Next Entertainment | Popular Tv</title>
+        <title>Cinematica | Popular Tv</title>
         <meta
           name="description"
           content="View details of your favorite popular tv shows."

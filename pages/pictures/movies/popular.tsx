@@ -18,7 +18,7 @@ export default function PopularMoviesPage({
   return (
     <>
       <Head>
-        <title>Next Entertainment | Popular Movies</title>
+        <title>Cinematica | Popular Movies</title>
         <meta
           name="description"
           content="View details of your favorite popular movies."

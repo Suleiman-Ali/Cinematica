@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
           http-equiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
-        <title>Next Entertainment</title>
+        <title>Cinematica</title>
         <meta
           name="description"
           content="View details of your favorite movies and tv shows."

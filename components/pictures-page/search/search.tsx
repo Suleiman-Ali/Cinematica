@@ -8,6 +8,7 @@ interface SearchPropTypes {
   clearHandler: () => void;
   isSearchPictures: boolean;
   isPictures: boolean;
+  term: string;
 }
 
 export default function Search({
@@ -15,8 +16,10 @@ export default function Search({
   clearHandler,
   isSearchPictures,
   isPictures,
+  term,
 }: SearchPropTypes) {
   const textInput = useRef<HTMLInputElement>(null);
+  const placeholder = term || 'Search term..';
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +35,7 @@ export default function Search({
         type="text"
         ref={textInput}
         className={styles.searchForm__input}
-        placeholder="Search query.."
+        placeholder={placeholder}
       />
       <button type="submit" className={styles.searchForm__btn} title="Search">
         <ISearch />

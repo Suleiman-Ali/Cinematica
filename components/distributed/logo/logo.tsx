@@ -5,11 +5,10 @@ import styles from './logo.module.scss';
 export default function Logo() {
   return (
     <Link href="/" className={styles.logo} prefetch={false}>
-      Next
+      Cinematica
       <span>
-        <Image src="/images/popcorn.svg" alt="" width={18} height={18} />
+        <Image src="/images/popcorn.svg" alt="" width={25} height={25} />
       </span>
-      Entertainment
     </Link>
   );
 }

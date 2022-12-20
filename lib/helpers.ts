@@ -22,7 +22,7 @@ export function sortBy(method: string, array: Picture[]) {
 }
 
 export function filterBy(method: string, array: Picture[]) {
-  if (method === 'All Genres') return array;
+  if (method === 'Filter By') return array;
   if (method === 'Action')
     return array.filter((pic) => pic.genre_ids.includes(28));
   if (method === 'Comedy')

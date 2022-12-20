@@ -16,7 +16,8 @@ export default function Header({ picture, type }: HeaderPropTypes) {
   const frontImageSrc = prefixPosterImg(poster_path);
   const alt = `${id}`;
   const name = title || original_name;
-  const link = `/pictures/${type}/${id}`;
+  const linkName = name.toLowerCase().replaceAll(':', '').replaceAll(' ', '-');
+  const fullLink = `/pictures/${type}/${id}/${linkName}`;
   return (
     <div className={styles.header}>
       <Image
@@ -31,7 +32,7 @@ export default function Header({ picture, type }: HeaderPropTypes) {
           <h1 className={styles.header__title}>{name}</h1>
           <p className={styles.header__overview}>{overview}</p>
         </div>
-        <Link href={link} prefetch={false}>
+        <Link href={fullLink} prefetch={false}>
           <Image
             className={styles.header__poster}
             src={frontImageSrc}

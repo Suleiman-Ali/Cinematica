@@ -22,12 +22,13 @@ body {
 
 button,
 a,
-input {
+input,
+select {
   border: none;
   outline: none;
   text-decoration: none;
   background-color: transparent;
-  font-family: inherit;
+  font-family: inherit !important;
 }
 
 body::-webkit-scrollbar-track {

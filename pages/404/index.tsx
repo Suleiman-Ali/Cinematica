@@ -6,7 +6,7 @@ export default function NotfoundPage() {
   return (
     <div className={styles.notFound}>
       <Head>
-        <title>Next Entertainment | 404</title>
+        <title>Cinematica | 404</title>
       </Head>
       <h1 className={styles.notFound__title}>Page Not Found 😕</h1>
       <Link

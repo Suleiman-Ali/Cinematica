@@ -30,7 +30,7 @@ export default function Content({
     index: 2,
     term: '',
     sort: 'Sort By',
-    genre: 'All Genres',
+    genre: 'Filter By',
     isCanLoadMore: true,
   });
 
@@ -44,7 +44,7 @@ export default function Content({
     setPicturesState({
       ...picturesState,
       sort: 'Sort By',
-      genre: 'All Genres',
+      genre: 'Filter By',
     });
 
   const clearAllHandler = () =>
@@ -53,7 +53,7 @@ export default function Content({
       index: 2,
       term: '',
       sort: 'Sort By',
-      genre: 'All Genres',
+      genre: 'Filter By',
       isCanLoadMore: true,
     });
 
@@ -63,7 +63,7 @@ export default function Content({
     const isCanLoadMore = newSearchPictures.length < 20 ? false : true;
     setPicturesState({
       sort: 'Sort By',
-      genre: 'All Genres',
+      genre: 'Filter By',
       index: 2,
       pictures,
       isCanLoadMore,
@@ -101,6 +101,7 @@ export default function Content({
           clearHandler={clearAllHandler}
           isSearchPictures={isSearchPictures}
           isPictures={isPictures}
+          term={term}
         />
         <Filter
           sortChangeHandler={sortChangeHandler}

@@ -4,12 +4,14 @@ import { Cast, Picture, Video } from '../../../lib/types';
 import { fetchPictureData } from '../../../lib/helpers';
 
 interface getServerSidePropsPropTypes {
-  params: { movieId: string };
+  params: { slug: [string, string] };
 }
 export async function getServerSideProps({
-  params: { movieId },
+  params: {
+    slug: [id, name],
+  },
 }: getServerSidePropsPropTypes) {
-  const props = await fetchPictureData('movie', movieId);
+  const props = await fetchPictureData('movie', id);
   if (!props) return { redirect: { destination: '/404' } };
   return { props };
 }
@@ -30,7 +32,7 @@ export default function MoviePage({
   return (
     <>
       <Head>
-        <title>Next Entertainment | {title}</title>
+        <title>Cinematica | {title}</title>
         <meta name="description" content={overview} />
       </Head>
       <Content
