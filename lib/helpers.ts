@@ -88,7 +88,7 @@ export async function fetchAllPictures() {
     const tvTopRated = allData[3].data.results || [];
     return { moviesPopular, moviesTopRated, tvPopular, tvTopRated };
   } catch (e) {
-    return null;
+    return { moviesPopular: [], moviesTopRated: [], tvPopular: [], tvTopRated: [] };
   }
 }
 
@@ -107,7 +107,7 @@ export async function fetchPictureData(type: string, id: string) {
     const trailer = extractTrailer(trailers) || {};
     return { details, cast, trailer, similar };
   } catch (e) {
-    return null;
+    return { details: {}, cast: [], trailer: {}, similar: [] };
   }
 }
 
