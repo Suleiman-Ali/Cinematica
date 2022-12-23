@@ -11,10 +11,10 @@ export const prefixBackImg = (path: string): string =>
   `https://image.tmdb.org/t/p/original${path}`;
 
 export const prefixPosterImg = (path: string) =>
-  `https://image.tmdb.org/t/p/w400${path}`;
+  `https://image.tmdb.org/t/p/w500${path}`;
 
 export const prefixCastImg = (path: string) =>
-  `https://image.tmdb.org/t/p/w300${path}`;
+  `https://image.tmdb.org/t/p/w400${path}`;
 
 export const prefixVideo = (path: string): string =>
   `https://www.youtube.com/embed/${path}`;
